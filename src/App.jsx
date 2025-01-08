@@ -4,14 +4,17 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MCA from "./pages/MCA";
+import Subjects from "./pages/Subjects";
+import DataStructure from "./pages/downloads/DataStructure";
+import OperatingSystem from "./pages/downloads/OperatingSystem";
+import CLanguage from "./pages/downloads/CLanguage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import DownloadPage from "./components/DownloadPage";
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="min-h-screen flex flex-col">
         {/* Navbar */}
         <Navbar />
 
@@ -20,11 +23,15 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mca" element={<MCA />} />
+            <Route path="/subjects" element={<Subjects />} />
+            <Route path="/download/data-structure" element={<DataStructure />} />
+            <Route path="/download/operating-system" element={<OperatingSystem />} />
+            <Route path="/download/c-language" element={<CLanguage />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-            <DownloadPage/>
+
         {/* Footer */}
         <Footer />
       </div>

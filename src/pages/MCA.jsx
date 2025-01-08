@@ -1,14 +1,23 @@
 import React from "react";
-import DownloadPage from "../components/DownloadPage";
+import { useNavigate } from "react-router-dom";
 
 const MCA = () => {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <h1 className="text-center text-3xl font-bold mt-6">MCA Question Papers</h1>
-      <p className="text-center mt-4 text-gray-600">
-        Download MCA-specific question papers below.
+    <div className="center-container">
+    <div className="p-4 text-center">
+      <h1 className="text-3xl font-bold mb-4">MCA</h1>
+      <p className="text-lg mb-6">
+        Welcome to the MCA page. Please select a subject to proceed.
       </p>
-      <DownloadPage />
+      <button
+        onClick={() => navigate("/subjects")}
+        className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+      >
+        Select Subject
+      </button>
+    </div>
     </div>
   );
 };
