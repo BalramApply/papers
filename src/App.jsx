@@ -10,11 +10,15 @@ import OperatingSystem from "./pages/downloads/OperatingSystem";
 import CLanguage from "./pages/downloads/CLanguage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import FallingStars from "./components/FallingStars"; // Import FallingStars
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
+        {/* Falling Stars */}
+        <FallingStars />
+
         {/* Navbar */}
         <Navbar />
 
