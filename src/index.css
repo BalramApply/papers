@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ... */
-/* Default light mode */
-body {
-  background-color: white;
-  color: black;
-}
-
-/* Dark mode */
-.dark body {
-  background-color: #1a1a1a;
-  color: white;
-}
 
 /* center content */
 .center-container {
@@ -21,17 +9,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 170px); /* Subtract the height of the Navbar and Footer */
   text-align: center;
 }
+
 
 /* Night Sky Background */
 body {
   background: linear-gradient(to bottom, #020024, #090979, #0b0033);
-  color: white;
   overflow: hidden;
   margin: 0;
-  padding: 0;
+  padding: 0; 
 }
 
 /* Falling Star Animation */
@@ -63,8 +51,20 @@ body {
   position: absolute;
   width: 3px;
   height: 60px;
-  background: red; /* Change color to red */
+  background: aqua; /* Change color to red */
   border-radius: 50%;
   box-shadow: 0 0 6px red; /* Add red glow */
   animation: falling 3s linear infinite;
 }
+
+/* footer */
+.min-h-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex-grow {
+  flex: 1;
+}
+

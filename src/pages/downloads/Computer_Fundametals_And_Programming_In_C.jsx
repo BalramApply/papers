@@ -1,15 +1,16 @@
 import React from "react";
 
-const CLanguage = () => {
+const Computer_Fundametals_And_Programming_In_C = () => {
   const papers = [
-    { title: "exam_07_01_24", link: "https://drive.google.com/file/d/1v4y5hLgq8FSQlGxGHxJ1TvG84Iy-C1NP/view?usp=drivesdk"},
-    { title: "sessional_1_12_24", link: "https://drive.google.com/file/d/1tVAAv6mls_ZOZeTpmYWJ5vvTXSgcf4md/view?usp=drivesdk"},
+    { title: "C Language Paper 1", link: "/papers/c-language-1.pdf" },
+    { title: "C Language Paper 2", link: "/papers/c-language-2.pdf" },
+    { title: "C Language Paper 3", link: "/papers/c-language-3.pdf" },
   ];
 
   return (
     <div className="center-container">
     <div className="p-4">
-      <h1 className="text-2xl font-bold text-center mb-4">C Language Papers</h1>
+      <h1 className="text-2xl font-bold text-center mb-4">Computer Fundametals And Programming In C</h1>
       <div className="flex flex-col items-center space-y-4">
         {papers.map((paper, index) => (
           <a
@@ -28,4 +29,4 @@ const CLanguage = () => {
   );
 };
 
-export default CLanguage;
+export default Computer_Fundametals_And_Programming_In_C;

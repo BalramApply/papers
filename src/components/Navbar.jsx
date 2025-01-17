@@ -1,77 +1,100 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  // State to track the theme mode
-  const [darkMode, setDarkMode] = useState(false);
-
-  // State to handle mobile menu visibility
+  // State to manage mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to toggle dark mode
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
-
-  // Function to toggle the mobile menu
+  // Toggle the menu
   const toggleMenu = () => {
-    setIsMenuOpen((prevState) => !prevState);
+    setIsMenuOpen((prev) => !prev);
   };
 
-  // Effect to apply the theme based on the mode
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
+  // Close the menu
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <nav className="bg-white dark:bg-gray-900 text-black dark:text-white p-4 fixed top-0 left-0 w-full z-10">
+    <nav className="bg-gray-800 text-white p-4">
       <div className="flex justify-between items-center">
-        {/* Logo or title */}
-        <div className="text-xl font-semibold">
+        {/* Logo */}
+        <div className="text-xl font-bold">
           <Link to="/">MyWebsite</Link>
         </div>
 
-        {/* Dark/Light Mode Toggle Button */}
-        <button
-          onClick={toggleDarkMode}
-          className="p-2 rounded bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-700 transition"
-        >
-          {darkMode ? (
-            <span role="img" aria-label="Light Mode">🌞</span>
-          ) : (
-            <span role="img" aria-label="Dark Mode">🌙</span>
-          )}
-        </button>
-
-        {/* Mobile Menu Icon */}
+        {/* Hamburger Icon for Mobile */}
         <button
           onClick={toggleMenu}
-          className="lg:hidden p-2 rounded bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-700 transition"
+          className="lg:hidden p-2 rounded bg-gray-700 hover:bg-gray-600"
         >
-          <span className="text-xl">&#9776;</span> {/* Hamburger Icon */}
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
         </button>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex space-x-4">
+          <Link to="/" className="hover:text-gray-400">
+            Home
+          </Link>
+          <Link to="/mca" className="hover:text-gray-400">
+            MCA
+          </Link>
+          <Link to="/about" className="hover:text-gray-400">
+            About
+          </Link>
+          <Link to="/contact" className="hover:text-gray-400">
+            Contact
+          </Link>
+        </div>
       </div>
 
-      {/* Links for desktop */}
-      <div className="hidden lg:flex space-x-4">
-        <Link to="/" className="hover:text-gray-500">Home</Link>
-        <Link to="/mca" className="hover:text-gray-500">MCA</Link>
-        <Link to="/about" className="hover:text-gray-500">About</Link>
-        <Link to="/contact" className="hover:text-gray-500">Contact</Link>
-      </div>
-
-      {/* Mobile Menu Links (visible when menu is open) */}
+      {/* Mobile Menu */}
       <div
-        className={`lg:hidden mt-4 space-y-4 ${isMenuOpen ? "block" : "hidden"}`}
+        className={`lg:hidden mt-4 ${
+          isMenuOpen ? "block" : "hidden"
+        } space-y-2`}
       >
-        <Link to="/" className="block text-center py-2 hover:text-gray-500">Home</Link>
-        <Link to="/mca" className="block text-center py-2 hover:text-gray-500">MCA</Link>
-        <Link to="/about" className="block text-center py-2 hover:text-gray-500">About</Link>
-        <Link to="/contact" className="block text-center py-2 hover:text-gray-500">Contact</Link>
+        <Link
+          to="/"
+          onClick={closeMenu} // Close the menu on click
+          className="block px-4 py-2 hover:bg-gray-700 rounded"
+        >
+          Home
+        </Link>
+        <Link
+          to="/mca"
+          onClick={closeMenu} // Close the menu on click
+          className="block px-4 py-2 hover:bg-gray-700 rounded"
+        >
+          MCA
+        </Link>
+        <Link
+          to="/about"
+          onClick={closeMenu} // Close the menu on click
+          className="block px-4 py-2 hover:bg-gray-700 rounded"
+        >
+          About
+        </Link>
+        <Link
+          to="/contact"
+          onClick={closeMenu} // Close the menu on click
+          className="block px-4 py-2 hover:bg-gray-700 rounded"
+        >
+          Contact
+        </Link>
       </div>
     </nav>
   );
